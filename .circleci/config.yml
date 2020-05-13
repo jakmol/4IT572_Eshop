@@ -13,7 +13,7 @@ jobs:
       - run: npm run build
       - run: apt-get update
       - run: apt-get install python3
-        run: pip3 install ansible boto boto3
+      - run: pip3 install ansible boto boto3
 
 workflows:
   version: 2.1
