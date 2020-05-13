@@ -14,7 +14,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install python3
       - run: sudo apt-get install python3-pip
-      - run: sudo apt-get upgrade python-setuptools
+      - run: sudo apt-get upgrade python3-setuptools
       - run: sudo pip3 install ansible boto boto3
 
 workflows:
