@@ -24,6 +24,8 @@ jobs:
             - .
   deploy:
     <<: [*vse, *configure_image]
+    steps:
+      - run: ansible --help
 
 workflows:
   version: 2.1
