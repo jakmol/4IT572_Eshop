@@ -17,7 +17,7 @@ deploy: &deploy
 version: 2.1
 jobs:
   build:
-    <<: *vse
+    <<: *image
     steps:
       - checkout
       - run: npm install
