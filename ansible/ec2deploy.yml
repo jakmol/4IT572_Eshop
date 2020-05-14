@@ -14,9 +14,9 @@
       wait: yes
       count: 1
       group: eshop
-      aws_access_key: "ASIAR2D6UJOZPOAIOICR"
-      aws_secret_key: "oSYj+qtr/Y+I9f+CD0SrcPF3/ntlAmiD4Mv6Nu51"
-      security_token: "FwoGZXIvYXdzEEAaDF7P11cH5COqQb/2yiK8AWd1qKN+4CutZwX0+6ZMHRy62fLJBQWm/Qn99cYZ7aUiMtIQVX8dHKT6Rp7Vum1lvPuXJ0m8YmYBEEo4EhNQ0WFVJRqmyPZwA/KccpUcuTnZ7Cq1ldvygslnYmkQFcfkNuuZF80bUJDHM60JI8lKDJk9Mr6SyrQslbzt4BNkF/+lhRUSaI/5yd60L9SfiezHUOvZBdfmGnMSSj/+vVT6xQQESfkyUy2r9ZOEz7tN1nbp03eBcTi/KOBfQxALKNe09fUFMi0BaRfb6rvn+fbbQPiWua2vnaQUzDAy2JyB6vo3w/qBVEo9C3W5JA9reouejSw="
+      aws_access_key: "ASIAR2D6UJOZNAASIT7H"
+      aws_secret_key: "MJZYZfpa7Jh9Km4UnlAihGw9GeuRGnXyoyDg1FTv"
+      security_token: "FwoGZXIvYXdzEEEaDK9Lybqip5tso2GnUyK8AbyjHldAK1WPsdd6FmHWaDqydwcyizhQPZylHkOSf4YxzM9BO1bwq1iE+aomBmOTF9/6eP/o1fCStuI9dBTYG77sFil2Il7iQK0BAS7IwHdUMhQbSsuTvY7YtQf67ZGToPiqhrEEePSMHC3qK753EZWM9XAG7zL6+bQnenvgckJWN11Y2XgUGRqUWajftjbbAAs3f207EY8k6HZVT2MulGbr6c5oclgfdCNgkdDa/M4cIwlkK1x69S8QfRE1KLTS9fUFMi2Lv5CS0q7ZUwyqF/9MhdGAoyF5e+6EGUv2ZDNUgOHa/kedi1vJUv0Zzs0nXrU="
      register: ec2
 
    - name: Add instance host to group
