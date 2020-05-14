@@ -29,7 +29,6 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "f7:6d:d1:14:09:b3:cd:41:b4:1c:07:e0:6a:22:ab:ca"
-      - run: sudo ansible-playbook
       - run:
           command: sudo ./ansible/ansible-playbook ec2deploy.yml --user ubuntu
 
