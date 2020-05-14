@@ -2,7 +2,6 @@ vse: &vse
   docker:
     - image: circleci/node:8.11.3
 configure_image: &configure_image
-  configure_image:
     steps:
       - run: sudo apt-get update
       - run: sudo apt-get install python
@@ -26,9 +25,9 @@ jobs:
   deploy:
     <<: *vse
     <<: *configure_image
-      - attach_workspace:
-          at: .
-      - run: ansible --help
+    - attach_workspace:
+        at: .
+    - run: ansible --help
 
 workflows:
   version: 2.1
