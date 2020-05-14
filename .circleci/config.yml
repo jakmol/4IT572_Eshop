@@ -23,13 +23,13 @@ jobs:
       - run: sudo apt-get install python
       - run: sudo apt-get install python-pip
       - run: sudo pip install -U pip setuptools
-      - run: sudo pip install ansible boto boto3
       - attach_workspace:
           at: .
       - add_ssh_keys:
           fingerprints:
             - "f7:6d:d1:14:09:b3:cd:41:b4:1c:07:e0:6a:22:ab:ca"
-      - run: sudo cd ~/.ssh && ls -a
+      - run: cd ~/.ssh
+      - run: ls -a
       - run:
           command: sudo ansible-playbook ./ansible/ec2deploy.yml --user ubuntu --ssh-common-args='-o StrictHostKeyChecking=no'
 
