@@ -8,15 +8,19 @@ jobs:
     <<: *vse
     steps:
       - checkout
-      - run: docker --help
+      - run: npm install
+      - run: npm run test
+      - run: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   configure_image:
     <<: *vse
     steps:
-      - run: sudo apt-get update
-      - run: sudo apt-get install python
-      - run: sudo apt-get install python-pip
-      - run: sudo pip install -U pip setuptools
-      - run: sudo pip install ansible boto boto3
+      - attach_workspace:
+          at: .
+      - run: docker build -t vm:1 ./.circleci/images/
   deploy:
     <<: *vse
     steps:
