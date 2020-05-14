@@ -2,12 +2,12 @@ vse: &vse
   docker:
     - image: circleci/node:8.11.3
 configure_image: &configure_image
-    steps:
-      - run: sudo apt-get update
-      - run: sudo apt-get install python
-      - run: sudo apt-get install python-pip
-      - run: sudo pip install -U pip setuptools
-      - run: sudo pip install ansible boto boto3
+  steps:
+    - run: sudo apt-get update
+    - run: sudo apt-get install python
+    - run: sudo apt-get install python-pip
+    - run: sudo pip install -U pip setuptools
+    - run: sudo pip install ansible boto boto3
 
 version: 2.1
 jobs:
