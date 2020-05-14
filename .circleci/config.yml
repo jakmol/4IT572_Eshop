@@ -16,6 +16,7 @@ jobs:
       - run: sudo apt-get install python-pip
       - run: sudo pip install -U pip setuptools
       - run: sudo pip install ansible boto boto3
+      - run: ansible --help
 
 workflows:
   version: 2.1
