@@ -23,11 +23,10 @@ jobs:
           paths:
             - .
   deploy:
-    <<: *vse
-    <<: *configure_image
-      - attach_workspace:
-          at: .
-      - run: ansible --help
+    <<: [*vse, *configure_image]
+    - attach_workspace:
+        at: .
+    - run: ansible --help
 
 workflows:
   version: 2.1
