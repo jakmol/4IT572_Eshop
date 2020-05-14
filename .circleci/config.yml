@@ -3,7 +3,6 @@ image: &image
     - image: circleci/node:8.11.3
 
 configure: &configure
-  steps:
     - run: sudo apt-get update
     - run: sudo apt-get install python
     - run: sudo apt-get install python-pip
@@ -11,7 +10,6 @@ configure: &configure
     - run: sudo pip install ansible boto boto3
 
 deploy: &deploy
-  steps:
     - run: ansible --help
 
 version: 2.1
@@ -28,7 +26,9 @@ jobs:
           paths:
             - .
   deploy:
-    <<: [*image, *configure, *deploy]
+    <<: *image
+    steps:
+      <<: [*configure, *deploy]
 
 workflows:
   version: 2.1
