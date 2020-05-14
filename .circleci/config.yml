@@ -1,19 +1,40 @@
-vse: &vse
+image: &image
   docker:
     - image: circleci/node:8.11.3
 
 version: 2.1
 jobs:
   build:
-    <<: *vse
+    <<: *image
     steps:
       - checkout
       - run: npm install
       - run: npm run test
       - run: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  deploy:
+    <<: *image
+    steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install python
+      - run: sudo apt-get install python-pip
+      - run: sudo pip install -U pip setuptools
+      - run: sudo pip install ansible boto boto3
+      - run: ansible --help
+      - attach_workspace:
+          at: .
 
 workflows:
   version: 2.1
   build:
     jobs:
       - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
