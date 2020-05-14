@@ -18,6 +18,7 @@ jobs:
   deploy:
     <<: *image
     steps:
+      - checkout
       - run: sudo apt-get update
       - run: sudo apt-get install python
       - run: sudo apt-get install python-pip
@@ -29,7 +30,7 @@ jobs:
           fingerprints:
             - "f7:6d:d1:14:09:b3:cd:41:b4:1c:07:e0:6a:22:ab:ca"
       - run:
-          command: ./ansible/ansible-playbook ec2deploy.yml --user ubuntu
+          command: sudo ansible-playbook ./ansible/ec2deploy.yml --user ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa_f76dd11409b3cd41b41c07e06a22abca
 
 
 
@@ -39,8 +40,8 @@ workflows:
     jobs:
       - build
       - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+         requires:
+          - build
+         filters:
+          branches:
+           only: master

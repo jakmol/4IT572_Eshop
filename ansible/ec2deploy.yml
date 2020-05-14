@@ -14,10 +14,9 @@
       wait: yes
       count: 1
       group: eshop
-      aws_access_key: "ASIAR2D6UJOZI2RM7UGR"
-      aws_secret_key: "6BAvWrd1b9dut3lezSU21wWh9KHyvkxMREAM3bMV"
-      security_token: "FwoGZXIvYXdzED4aDHAUg6rvc3mqYISIlCK8AQc2gWcC+UPGlhc4aZxc0wPFNPrRT1Ifsuhi2Jkm8AjtFc3QSTqIV7uwplQd4jblKFk92yVAsmJgSjEDhhZBp9ZJ1h7EAe9CPfOnj/9sARSz5CYgml/3TOH0B/YoRIY0qiLsV6XT63h7TOKvxOFE2my6hECV8TbOo4qJlJ7x4tGBhTBdEDQPG4JsUHF6UrmB8O/XDg4yKF+hf03LEubfVM54UTzUW6mrOr1jMof1PaVZ0NnBkHHYhOwwLSDRKJ/99PUFMi2dgg/+EDAokiMQmbwsnNPHs0QoJZ26D/9SmwzlUTB5r7FTWuhsMlIZx6ZOLE0=
-"
+      aws_access_key: "ASIAR2D6UJOZNAASIT7H"
+      aws_secret_key: "MJZYZfpa7Jh9Km4UnlAihGw9GeuRGnXyoyDg1FTv"
+      security_token: "FwoGZXIvYXdzEEEaDK9Lybqip5tso2GnUyK8AbyjHldAK1WPsdd6FmHWaDqydwcyizhQPZylHkOSf4YxzM9BO1bwq1iE+aomBmOTF9/6eP/o1fCStuI9dBTYG77sFil2Il7iQK0BAS7IwHdUMhQbSsuTvY7YtQf67ZGToPiqhrEEePSMHC3qK753EZWM9XAG7zL6+bQnenvgckJWN11Y2XgUGRqUWajftjbbAAs3f207EY8k6HZVT2MulGbr6c5oclgfdCNgkdDa/M4cIwlkK1x69S8QfRE1KLTS9fUFMi2Lv5CS0q7ZUwyqF/9MhdGAoyF5e+6EGUv2ZDNUgOHa/kedi1vJUv0Zzs0nXrU="
      register: ec2
 
    - name: Add instance host to group
@@ -46,13 +45,13 @@
      become: yes
    - name: Get project from git
      git:
-      repo : 'https://github.com/jakmol/4IT572_docker.git'
+      repo : 'https://github.com/jakmol/4IT572_Eshop'
       dest: ./app
      become: yes
    - name: Build docker with eshop
      shell: cd app && docker build -t myeshop:latest .
      become: yes
-   - name: Build docker with eshop
+   - name: Run docker with eshop
      shell: docker run -p 80:3000 myeshop
      async: 45
      poll: 10
