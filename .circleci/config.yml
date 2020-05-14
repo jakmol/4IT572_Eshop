@@ -1,13 +1,18 @@
-vse: &vse
+image: &image
   docker:
     - image: circleci/node:8.11.3
-configure_image: &configure_image
+
+configure: &configure
   steps:
     - run: sudo apt-get update
     - run: sudo apt-get install python
     - run: sudo apt-get install python-pip
     - run: sudo pip install -U pip setuptools
     - run: sudo pip install ansible boto boto3
+
+deploy: &deploy
+  steps:
+    - run: ansible --help
 
 version: 2.1
 jobs:
@@ -23,8 +28,7 @@ jobs:
           paths:
             - .
   deploy:
-    <<: [*vse, *configure_image]
-    run: ansible --help
+    <<: [*image, *configure, *deploy]
 
 workflows:
   version: 2.1
