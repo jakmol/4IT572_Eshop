@@ -29,5 +29,9 @@ workflows:
   build:
     jobs:
       - build
-      - configure_image
-      - deploy
+      - configure_image:
+         requires:
+           - build
+      - deploy:
+         requires:
+           - configure_image
