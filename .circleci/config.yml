@@ -1,6 +1,14 @@
 vse: &vse
   docker:
     - image: circleci/node:8.11.3
+configure_image: &configure_image
+  configure_image:
+    steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install python
+      - run: sudo apt-get install python-pip
+      - run: sudo pip install -U pip setuptools
+      - run: sudo pip install ansible boto boto3
 
 version: 2.1
 jobs:
@@ -15,16 +23,12 @@ jobs:
           root: .
           paths:
             - .
-  configure_image:
-    <<: *vse
-    steps:
-      - attach_workspace:
-          at: .
-      - run: docker build -t vm:1 ./.circleci/images/
   deploy:
     <<: *vse
-    steps:
-      - run: ansible --help
+    <<: *configure_image
+    - attach_workspace:
+        at: .
+    - run: ansible --help
 
 workflows:
   version: 2.1
