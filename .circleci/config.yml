@@ -13,16 +13,16 @@ jobs:
       - run: npm run build
   configure_image:
     <<: *vse
-      steps:
-        - run: sudo apt-get update
-        - run: sudo apt-get install python
-        - run: sudo apt-get install python-pip
-        - run: sudo pip install -U pip setuptools
-        - run: sudo pip install ansible boto boto3
+    steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install python
+      - run: sudo apt-get install python-pip
+      - run: sudo pip install -U pip setuptools
+      - run: sudo pip install ansible boto boto3
   deploy:
     <<: *vse
-      steps:
-        - run: ansible --help
+    steps:
+      - run: ansible --help
 
 workflows:
   version: 2.1
