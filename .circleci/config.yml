@@ -1,7 +1,6 @@
 vse: &vse
   docker:
     - image: circleci/node:8.11.3
-    - run: sudo apt-get update
 
 version: 2.1
 jobs:
@@ -9,9 +8,7 @@ jobs:
     <<: *vse
     steps:
       - checkout
-      - run: npm install
-      - run: npm run test
-      - run: npm run build
+      - run: docker --help
   configure_image:
     <<: *vse
     steps:
