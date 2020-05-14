@@ -46,7 +46,7 @@
      become: yes
    - name: Get project from git
      git:
-      repo : 'https://github.com/jakmol/4IT572_docker.git'
+      repo : 'https://github.com/jakmol/4IT572_Eshop'
       dest: ./app
      become: yes
    - name: Build docker with eshop

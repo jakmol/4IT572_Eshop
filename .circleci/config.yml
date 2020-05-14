@@ -30,7 +30,7 @@ jobs:
           fingerprints:
             - "f7:6d:d1:14:09:b3:cd:41:b4:1c:07:e0:6a:22:ab:ca"
       - run:
-          command: sudo ansible-playbook ./ansible/ec2deploy.yml --user ubuntu
+          command: sudo ansible-playbook ./ansible/ec2deploy.yml --user ubuntu --ssh-common-args='-o StrictHostKeyChecking=no'
 
 
 
