@@ -28,9 +28,9 @@ jobs:
           at: .
       - add_ssh_keys:
           fingerprints:
-            - "f7:6d:d1:14:09:b3:cd:41:b4:1c:07:e0:6a:22:ab:ca"
+            - "ba:b7:67:a4:18:6a:3a:f4:e3:9e:e3:40:08:c7:26:6c"
       - run:
-          command: sudo ansible-playbook ./ansible/ec2deploy.yml --user ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa_f76dd11409b3cd41b41c07e06a22abca
+          command: sudo ansible-playbook ./ansible/ec2deploy.yml --user ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa_bab767a4186a3af4e39ee34008c7266c
 
 
 
