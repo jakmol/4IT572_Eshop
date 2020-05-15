@@ -8,7 +8,7 @@
       instance_type: t2.micro
       image: ami-085925f297f89fce1
       region: us-east-1
-      key_name: presentation
+      key_name: eshop
       vpc_subnet_id: subnet-020af364
       assign_public_ip: yes
       wait: yes
