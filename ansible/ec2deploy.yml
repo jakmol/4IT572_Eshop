@@ -14,9 +14,9 @@
       wait: yes
       count: 1
       group: eshop
-      aws_access_key: "ASIAR2D6UJOZLJEUM6CH"
-      aws_secret_key: "69+5FoXYTupbhpxq/ZcDE3nCgBPAtqFUCTMcOUT5"
-      security_token: "FwoGZXIvYXdzEFEaDHlhlHB9VTmaWWZOASK8AXPfZSSV33Afax2YsPMh8EOOdPoY8QibOVKaK5pPfSExPU/Z0oQ+kLQ+JHo2gl2M//mrNLPkSogKCJOd/LAs07Qsu97aGgIKwKqWY0SIDQ/WJDUn/bvrbT7jl2wjq9jZUszU7pcfWNJHVfoH/l4cwAugrjUx0XY5fdQohW8pjUxNqwMW6PnGn+3GOAMfGU0Kd//QBomAKchoh4sCq3KFY6B0IAE/E3MKIB0Ng0tsmj7TykwS3LqU4xBa6m1bKJSX+fUFMi3rt8W8iQkJ1r/r5eq2bUCgTl5UMvVblt3q32XP7G+IFwIKzpGDEqwwwRyn0SM="
+      aws_access_key: "ASIAR2D6UJOZIR2ME3NI"
+      aws_secret_key: "89SNImjexlK7cw/+MFLODVJu9dX95hLtcQE9LYWO"
+      security_token: "FwoGZXIvYXdzEJ7//////////wEaDC0baltDj2QLbmwJFiK8AYa3HM3gHtGNKy8v7YLyk1HjKYQgkaw+CKydCXWYt6jf7dqIvkK57fxIEd8ag56ZH9nhom9JTHRjZvW+AY3H8nfy09wlQyQK1e1liLZ0y6YSvRqQo7m5yRj+iD6ZQGH53b3CtZzeyW5GQ3yCq+wnKmNC578ntIm+o/KeU5TFaecpPRRNH9+XbL9CfCz13QuTxOHzCEhMor6tDYPbxyrELOS8OpzIG21aE/PUKtAnncU6iCR+PxdNI0LUqnE2KIr0ifYFMi2bo/RozEUQJ1XqS6rFrgw/ts6YS92kolQ8UQhX/9V93REyV/6xYAeUC1d4J2k="
      register: ec2
 
    - name: Add instance host to group
@@ -53,8 +53,6 @@
      become: yes
    - name: Run docker with eshop
      shell: docker run -p 80:3000 myeshop
-     async: 45
-     poll: 10
      become: yes
    - wait_for:
       port: 80  
